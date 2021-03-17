@@ -1,0 +1,11 @@
+creating tables
+
+create table family_members(
+	member_id serial primary key,
+	fname varchar(15) not null,
+	lname varchar(15) not null);
+	
+create table parent_child(
+	parent_id integer not null references family_members (member_id),
+	child_id integer not null references family_members (member_id),
+	primary key (parent_id, child_id));
